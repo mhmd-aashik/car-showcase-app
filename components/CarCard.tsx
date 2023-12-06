@@ -1,5 +1,5 @@
 "use client";
-import { calculateCarRent } from "@/utils";
+import { calculateCarRent, generateCarImageUrl } from "@/utils";
 import Image from "next/image";
 import React, { useState } from "react";
 import CustomButton from "./CustomButton";
@@ -41,7 +41,7 @@ const CarCard = ({ car }: CarProps) => {
       </p>
       <div className="relative w-full h-40 my-3 object-contain">
         <Image
-          src="/hero.png"
+          src={generateCarImageUrl(car)}
           alt="car model"
           fill
           priority
