@@ -29,6 +29,8 @@ const SearchBar = () => {
       return alert("Please fill in the search bar");
     }
     updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
+    setManufacturer("");
+    setModel("");
   }
 
   const updateSearchParams = (model: string, manufacturer: string) => {
@@ -48,7 +50,7 @@ const SearchBar = () => {
     const newPathName = `${
       window.location.pathname
     }?${searchParams.toString()}`;
-    router.push(newPathName);
+    router.push(newPathName, { scroll: false });
   };
   return (
     <form className="searchbar" onSubmit={handleSearch}>
@@ -72,7 +74,7 @@ const SearchBar = () => {
           name="model"
           value={model}
           onChange={(e) => setModel(e.target.value)}
-          placeholder="Audi-- Q3"
+          placeholder="Q3"
           className="searchbar__input"
         />
         <SearchButton otherClasses="sm:hidden" />
